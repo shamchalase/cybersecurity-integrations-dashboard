@@ -18,6 +18,31 @@ npm run build
 npm start
 ```
 
+## Quality Checks (CI Scripts)
+
+Run the automated checks locally before pushing:
+
+```bash
+npm run lint
+npm run typecheck
+npm run build
+```
+
+## CI/CD Pipeline
+
+The project uses GitHub Actions for Continuous Integration and Continuous Deployment (`.github/workflows/ci-cd.yml`):
+
+1. **Continuous Integration (CI)**:
+   - Triggers on push and pull requests.
+   - Sets up Node.js 20 with npm caching.
+   - Runs `npm ci` for deterministic dependency installation.
+   - Runs linting (`npm run lint`), TypeScript checks (`npm run typecheck`), and static export build (`npm run build`).
+   - Packages and uploads production build artifacts.
+
+2. **Continuous Deployment (CD)**:
+   - Triggers automatically when code merges into the `main` branch after CI checks pass.
+   - Deploys the static export build to GitHub Pages.
+
 ## Included functionality
 
 - All integration names and categories supplied in the assignment data
