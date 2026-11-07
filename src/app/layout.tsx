@@ -6,8 +6,6 @@ export const metadata: Metadata = {
   title: "Metron | Security Integrations",
   description: "Explore Metron's security and IT operations integrations."
 };
-
-
 export default function RootLayout({
   children
 }: Readonly<{ children: React.ReactNode }>) {
